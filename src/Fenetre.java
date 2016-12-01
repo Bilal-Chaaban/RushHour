@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -14,7 +13,7 @@ public class Fenetre extends JFrame{
     protected JButton[] jouer=new JButton[10];
     protected JPanel panelBoutonJouer = new JPanel(new GridLayout(4, 3, 2, 10));
 
-
+    protected JMenuItem nouvellePartie = new JMenuItem(" Nouvelle Partie");
 
     protected JLabel chrono=new JLabel("0.00");
 
@@ -28,7 +27,6 @@ public class Fenetre extends JFrame{
         creerMenu();
         for (int i = 0; i < 10; i++) {
             jouer[i]=new JButton(""+i);
-
         }
     }
 
@@ -43,6 +41,7 @@ public class Fenetre extends JFrame{
     public JButton[] getJouer() {
         return jouer;
     }
+
 
     public void creerJouer(){
 
@@ -61,6 +60,7 @@ public class Fenetre extends JFrame{
     }
 
     public void creerMenu(){
+
         bouton1.setPreferredSize(new Dimension(360,100));
         bouton2.setPreferredSize(new Dimension(360,100));
         bouton3.setPreferredSize(new Dimension(360,100));
@@ -74,6 +74,16 @@ public class Fenetre extends JFrame{
 
         setContentPane(panelPrincipale);
     }
+
+    public void creerMenu2(){
+        JMenuBar barMenu = new JMenuBar();
+        JMenu menu1 = new JMenu("Partie");
+        menu1.add(nouvellePartie);
+
+        barMenu.add(menu1);
+        setJMenuBar(barMenu);
+    }
+
     public void setButtonControler(ActionListener listener) {
 
         bouton1.addActionListener(listener);
@@ -82,7 +92,9 @@ public class Fenetre extends JFrame{
         bouton4.addActionListener(listener);
 */
         jouer[0].addActionListener(listener);
+        nouvellePartie.addActionListener(listener);
     }
+
 
 
 }

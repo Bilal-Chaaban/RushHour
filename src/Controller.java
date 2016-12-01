@@ -19,9 +19,15 @@ public class Controller implements ActionListener {
         if (e.getSource()==fenetre.getBouton1()){
             fenetre.creerMenuJouer();
         }
-        if (e.getSource()==fenetre.getJouer()[0]){
+        if (e.getSource()==fenetre.getJouer()[0]) {
             fenetre.creerJouer();
+            fenetre.creerMenu2();
             chrono.start();
+        }
+        if (fenetre.nouvellePartie.equals(e.getSource())){
+            chrono.stopChrono();
+            chrono=new Chrono(fenetre.chrono);
+            fenetre.creerMenuJouer();
         }
         fenetre.setVisible(true);
     }
