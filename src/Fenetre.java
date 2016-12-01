@@ -13,8 +13,10 @@ public class Fenetre extends JFrame{
     protected JButton[] jouer=new JButton[10];
     protected JPanel panelBoutonJouer = new JPanel(new GridLayout(4, 3, 2, 10));
 
+    protected JMenuBar barMenu;
     protected JMenuItem nouvellePartie = new JMenuItem(" Nouvelle Partie");
-
+    protected JMenu menu1;
+    protected JMenuItem menuPrincipale = new JMenuItem("menu Princpale");
     protected JLabel chrono=new JLabel("0.00");
 
     protected JLabel t = new JLabel("RUSH HOUR");
@@ -28,6 +30,7 @@ public class Fenetre extends JFrame{
         for (int i = 0; i < 10; i++) {
             jouer[i]=new JButton(""+i);
         }
+
     }
 
     public JLabel getChrono() {
@@ -60,7 +63,9 @@ public class Fenetre extends JFrame{
     }
 
     public void creerMenu(){
-
+        barMenu = new JMenuBar();
+        setJMenuBar(barMenu);
+        panelPrincipale=new JPanel();
         bouton1.setPreferredSize(new Dimension(360,100));
         bouton2.setPreferredSize(new Dimension(360,100));
         bouton3.setPreferredSize(new Dimension(360,100));
@@ -71,18 +76,20 @@ public class Fenetre extends JFrame{
         panelBouton.add(bouton4);
         panelPrincipale.add(t);
         panelPrincipale.add(panelBouton);
-
         setContentPane(panelPrincipale);
+
     }
 
     public void creerMenu2(){
-        JMenuBar barMenu = new JMenuBar();
-        JMenu menu1 = new JMenu("Partie");
+        barMenu= new JMenuBar();
+        menu1 = new JMenu("Partie");
         menu1.add(nouvellePartie);
 
         barMenu.add(menu1);
+        barMenu.add(menuPrincipale);
         setJMenuBar(barMenu);
     }
+
 
     public void setButtonControler(ActionListener listener) {
 
@@ -93,6 +100,7 @@ public class Fenetre extends JFrame{
 */
         jouer[0].addActionListener(listener);
         nouvellePartie.addActionListener(listener);
+        menuPrincipale.addActionListener(listener);
     }
 
 

@@ -14,23 +14,26 @@ public class Controller implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        System.out.println("test");
-        fenetre.setVisible(false);
+        //System.out.println("test");
+       //fenetre.setVisible(false);
         if (e.getSource()==fenetre.getBouton1()){
             fenetre.creerMenuJouer();
+            fenetre.creerMenu2();
         }
         if (e.getSource()==fenetre.getJouer()[0]) {
             fenetre.creerJouer();
-            fenetre.creerMenu2();
             chrono.start();
         }
-        if (fenetre.nouvellePartie.equals(e.getSource())){
+        if (fenetre.nouvellePartie==(e.getSource())){
             chrono.stopChrono();
             chrono=new Chrono(fenetre.chrono);
             fenetre.creerMenuJouer();
         }
+        if (fenetre.menuPrincipale==e.getSource()){
+            System.out.println("test");
+            fenetre.creerMenu();
+
+        }
         fenetre.setVisible(true);
     }
-
-
 }
