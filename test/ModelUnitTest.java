@@ -19,7 +19,7 @@ public class ModelUnitTest {
         model.init(1);
         Vehicule bleu=new Voiture(Vehicule.BLEU);
         Vehicule rouge=new Voiture(Vehicule.ROUGE);
-        Vehicule[][] v=new Vehicule[6][6];
+        Vehicule[][] v=model.getVehicule();
             v[0]= new Vehicule[]{bleu, null, null, null, null, null};
             v[1]=new Vehicule[]{bleu,null,null,null,null,null};
             v[2]=new Vehicule[]{null,null,rouge,rouge,null,null};
@@ -35,7 +35,7 @@ public class ModelUnitTest {
         model.init(1);
         Vehicule bleu=new Voiture(Vehicule.BLEU);
         Vehicule rouge=new Voiture(Vehicule.ROUGE);
-        Vehicule[][] v=new Vehicule[6][6];
+        Vehicule[][] v=model.getVehicule();
         v[0]= new Vehicule[]{bleu, null, null, null, null, null};
         v[1]=new Vehicule[]{bleu,null,null,null,null,null};
         v[2]=new Vehicule[]{null,null,rouge,rouge,null,null};

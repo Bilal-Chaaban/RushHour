@@ -3,7 +3,7 @@
  */
 public class Model {
 
-    private Vehicule[][] vehicule;
+    private Vehicule[][] vehicule =new Vehicule[6][6];
 
     public void setVehicule(Vehicule[][] vehicule) {
         this.vehicule=vehicule;
