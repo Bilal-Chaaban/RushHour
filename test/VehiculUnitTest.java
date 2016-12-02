@@ -1,5 +1,6 @@
 import org.junit.Test;
 
+import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class VehiculUnitTest {
@@ -18,7 +19,7 @@ public class VehiculUnitTest {
 
         model.setVehicule(tableau);
         model.deplacer(voiture,Model.GAUCHE);
-        assertEquals(model.getVehicule(), tableau);
+        assertArrayEquals(model.getVehicule(), tableau);
     }
     @Test
     public void testLimiteDroite()  {
@@ -34,7 +35,7 @@ public class VehiculUnitTest {
 
         model.setVehicule(tableau);
         model.deplacer(voiture,Model.DROITE);
-        assertEquals(model.getVehicule(), tableau);
+        assertArrayEquals(model.getVehicule(), tableau);
     }
 
     @Test
@@ -51,7 +52,7 @@ public class VehiculUnitTest {
 
         model.setVehicule(tableau);
         model.deplacer(voiture,Model.HAUT);
-        assertEquals(model.getVehicule(), tableau);
+        assertArrayEquals(model.getVehicule(), tableau);
     }
     @Test
     public void testLimiteBas()  {
@@ -67,7 +68,7 @@ public class VehiculUnitTest {
 
         model.setVehicule(tableau);
         model.deplacer(voiture,Model.BAS);
-        assertEquals(model.getVehicule(), tableau);
+        assertArrayEquals(model.getVehicule(), tableau);
     }
 
     @Test
@@ -86,7 +87,7 @@ public class VehiculUnitTest {
 
         model.setVehicule(tableau);
         model.deplacer(bleu,Model.HAUT);
-        assertEquals(model.getVehicule(), tableau);
+        assertArrayEquals(model.getVehicule(), tableau);
     }
     @Test
     public void testVoiturePresenteBas()  {
@@ -104,7 +105,7 @@ public class VehiculUnitTest {
 
         model.setVehicule(tableau);
         model.deplacer(rouge,Model.BAS);
-        assertEquals(model.getVehicule(), tableau);
+        assertArrayEquals(model.getVehicule(), tableau);
     }
     @Test
     public void testVoiturePresenteGauche()  {
@@ -122,7 +123,7 @@ public class VehiculUnitTest {
 
         model.setVehicule(tableau);
         model.deplacer(rouge,Model.GAUCHE);
-        assertEquals(model.getVehicule(), tableau);
+        assertArrayEquals(model.getVehicule(), tableau);
     }
     @Test
     public void testVoiturePresenteDroite()  {
@@ -140,7 +141,7 @@ public class VehiculUnitTest {
 
         model.setVehicule(tableau);
         model.deplacer(bleu,Model.DROITE);
-        assertEquals(model.getVehicule(), tableau);
+        assertArrayEquals(model.getVehicule(), tableau);
     }
 
 
