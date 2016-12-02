@@ -18,9 +18,30 @@ public class Model {
         return vehicule[i][j]==null;
     }
 
+    public void deplacer (Vehicule v,int direction){
+        int[] position = getPosition(v);
+        if ( (direction == 9 && position[1] != 0) ){
+            vehicule[position[0]][position[1] - 1] = v;
+            vehicule[position[0]][position[1] + v.taille-1] = null;
+        }
+        if ( (direction == 10 && position[1] < (5 - v.taille)) ){
+            vehicule[position[0]][position[1] + v.taille-1] = v;
+            vehicule[position[0]][position[1]] = null;
+        }
+        if ( (direction == 7 && position[0] != 0) ){
+            vehicule[position[0] - v.taille-1][position[1]] = v;
+            vehicule[position[0]][position[1]] = null;
+        }
+        if ( (direction == 8 && position[0] < (5 - v.taille-1)) ){
+            vehicule[position[0] + 1][position[1]] = v;
+            vehicule[position[0] - v.taille-1][position[1]] = null;
+        }
+    }
+
+
     public int[] getPosition(Vehicule v){
         int[] tab=new int[2];
-        for (int i = 5; i >=0 ; i++) {
+        for (int i = 5; i >=0 ; i--) {
             for (int j = 0; j < 6; j++) {
                 if (v.equals(vehicule[i][j])){
                     tab[0]=i;

@@ -6,6 +6,9 @@ public class Camion extends Vehicule {
         super(couleur);
         taille=3;
     }
+    public boolean isCamion() {
+        return true;
+    }
 
 
 }

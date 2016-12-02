@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
  * Created by lb685 on 01/12/2016.
  */
@@ -12,7 +14,16 @@ public abstract class Vehicule {
     public static final int VIOLET=5;
     public static final int BRUN=6;
 
-
+    public boolean equals(Vehicule v){
+        if (this==null||v==null){
+            return false;
+        }
+        if (v.isVoiture()&&this.isVoiture()){
+            return v.couleur==this.couleur;
+        }else if (v.isCamion()&&this.isCamion()){
+            return v.couleur==this.couleur;
+        }else return false;
+    }
     public Vehicule(int couleur){
         this.couleur=couleur;
     }
@@ -20,5 +31,12 @@ public abstract class Vehicule {
 
     public int getCouleur() {
         return couleur;
+    }
+
+    public boolean isVoiture() {
+        return false;
+    }
+    public boolean isCamion() {
+        return false;
     }
 }
