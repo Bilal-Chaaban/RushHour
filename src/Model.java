@@ -20,5 +20,21 @@ public class Model {
                 vehicule[i][j]=null;
             }
         }
+
+    }
+    public String toString(){
+        String ret="";
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (vehicule[i][j] == null) {
+                    ret+="| ";
+                }else {
+                    ret+="|"+vehicule[i][j].getCouleur();
+                }
+
+            }
+            ret+="\n";
+        }
+        return ret;
     }
 }
