@@ -3,6 +3,7 @@
  */
 public abstract class Vehicule {
     protected int couleur;
+    protected int taille;
     public static final int BLEU=0;
     public static final int VERT=1;
     public static final int ROUGE=2;
@@ -11,14 +12,11 @@ public abstract class Vehicule {
     public static final int VIOLET=5;
     public static final int BRUN=6;
 
-    public static final int HAUT=7;
-    public static final int BAS=8;
-    public static final int GAUCHE=9;
-    public static final int DROITE=10;
+
     public Vehicule(int couleur){
         this.couleur=couleur;
     }
-    abstract void deplacer(int direction);
+
 
     public int getCouleur() {
         return couleur;

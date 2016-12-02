@@ -4,10 +4,8 @@
 public class Camion extends Vehicule {
     public Camion(int couleur) {
         super(couleur);
+        taille=3;
     }
 
-    @Override
-    void deplacer(int direction) {
 
-    }
 }
