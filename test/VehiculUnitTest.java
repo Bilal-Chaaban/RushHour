@@ -18,7 +18,9 @@ public class VehiculUnitTest {
         Model model = new Model(1);
 
         model.setVehicule(tableau);
+        System.out.println(model);
         model.deplacer(voiture,Model.GAUCHE);
+        System.out.println(model);
         assertArrayEquals(model.getVehicule(), tableau);
     }
     @Test
@@ -34,7 +36,9 @@ public class VehiculUnitTest {
         Model model = new Model(1);
 
         model.setVehicule(tableau);
+        System.out.println(model);
         model.deplacer(voiture,Model.DROITE);
+        System.out.println(model);
         assertArrayEquals(model.getVehicule(), tableau);
     }
 
@@ -51,7 +55,9 @@ public class VehiculUnitTest {
         Model model = new Model(1);
 
         model.setVehicule(tableau);
+        System.out.println(model);
         model.deplacer(voiture,Model.HAUT);
+        System.out.println(model);
         assertArrayEquals(model.getVehicule(), tableau);
     }
     @Test
@@ -67,7 +73,9 @@ public class VehiculUnitTest {
         Model model = new Model(1);
 
         model.setVehicule(tableau);
+        System.out.println(model);
         model.deplacer(voiture,Model.BAS);
+        System.out.println(model);
         assertArrayEquals(model.getVehicule(), tableau);
     }
 
@@ -86,8 +94,10 @@ public class VehiculUnitTest {
         Model model = new Model(1);
 
         model.setVehicule(tableau);
+        System.out.println(model);
         model.deplacer(bleu,Model.HAUT);
         assertArrayEquals(model.getVehicule(), tableau);
+        System.out.println(model);
     }
     @Test
     public void testVoiturePresenteBas()  {
@@ -104,7 +114,9 @@ public class VehiculUnitTest {
         Model model = new Model(1);
 
         model.setVehicule(tableau);
+        System.out.println(model);
         model.deplacer(rouge,Model.BAS);
+        System.out.println(model);
         assertArrayEquals(model.getVehicule(), tableau);
     }
     @Test
@@ -122,7 +134,9 @@ public class VehiculUnitTest {
         Model model = new Model(1);
 
         model.setVehicule(tableau);
+        System.out.println(model);
         model.deplacer(rouge,Model.GAUCHE);
+        System.out.println(model);
         assertArrayEquals(model.getVehicule(), tableau);
     }
     @Test
@@ -140,7 +154,9 @@ public class VehiculUnitTest {
         Model model = new Model(1);
 
         model.setVehicule(tableau);
+        System.out.println(model);
         model.deplacer(bleu,Model.DROITE);
+        System.out.println(model);
         assertArrayEquals(model.getVehicule(), tableau);
     }
 

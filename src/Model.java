@@ -33,8 +33,8 @@ public class Model {
             }
         }
         if ( (direction == 7 && position[0] != 0) ){
-            if(isNull(position[0] - v.taille, position[1])) {
-                vehicule[position[0] - v.taille - 1][position[1]] = v;
+            if(isNull(position[0] - v.taille+1, position[1])) {
+                vehicule[position[0] - v.taille + 1][position[1]] = v;
                 vehicule[position[0]][position[1]] = null;
             }
         }
@@ -87,7 +87,7 @@ public class Model {
                     ret+="|"+vehicule[i][j].getCouleur();
                 }
             }
-            ret+="\n";
+            ret+="|\n";
         }
         return ret;
     }
