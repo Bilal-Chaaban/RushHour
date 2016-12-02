@@ -21,20 +21,28 @@ public class Model {
     public void deplacer (Vehicule v,int direction){
         int[] position = getPosition(v);
         if ( (direction == 9 && position[1] != 0) ){
-            vehicule[position[0]][position[1] - 1] = v;
-            vehicule[position[0]][position[1] + v.taille-1] = null;
+            if(isNull(position[0], position[1]-1)) {
+                vehicule[position[0]][position[1] - 1] = v;
+                vehicule[position[0]][position[1] + v.taille - 1] = null;
+            }
         }
         if ( (direction == 10 && position[1] < (5 - v.taille)) ){
-            vehicule[position[0]][position[1] + v.taille-1] = v;
-            vehicule[position[0]][position[1]] = null;
+            if(isNull(position[0], position[1] + v.taille - 1)) {
+                vehicule[position[0]][position[1] + v.taille - 1] = v;
+                vehicule[position[0]][position[1]] = null;
+            }
         }
         if ( (direction == 7 && position[0] != 0) ){
-            vehicule[position[0] - v.taille-1][position[1]] = v;
-            vehicule[position[0]][position[1]] = null;
+            if(isNull(position[0] - v.taille, position[1])) {
+                vehicule[position[0] - v.taille - 1][position[1]] = v;
+                vehicule[position[0]][position[1]] = null;
+            }
         }
         if ( (direction == 8 && position[0] < (5 - v.taille-1)) ){
-            vehicule[position[0] + 1][position[1]] = v;
-            vehicule[position[0] - v.taille-1][position[1]] = null;
+            if(isNull(position[0] + 1, position[1])) {
+                vehicule[position[0] + 1][position[1]] = v;
+                vehicule[position[0] - v.taille - 1][position[1]] = null;
+            }
         }
     }
 
