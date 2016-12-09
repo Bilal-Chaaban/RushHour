@@ -1,9 +1,10 @@
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Created by lb685 on 01/12/2016.
  */
-public abstract class Vehicule {
+public abstract class Vehicule implements Serializable {
     protected int couleur;
     protected int taille;
     public static final int BLEU=0;

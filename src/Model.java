@@ -98,7 +98,7 @@ public class Model {
         ObjectOutputStream oos = null;
         FileOutputStream file = new FileOutputStream(fileName);
         oos = new ObjectOutputStream(file);
-        oos.writeObject(this.vehicule);
+        oos.writeObject(vehicule);
     }
     public void loadBin(String fileName) throws IOException, ClassNotFoundException {
         ObjectInputStream ois = null;
