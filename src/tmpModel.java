@@ -65,6 +65,8 @@ public class tmpModel {
             e.printStackTrace();
         }
         System.out.println(m2);
+        Fenetre fenetre = new Fenetre();
+        fenetre.niveau(1,model);
     }
 
 }
