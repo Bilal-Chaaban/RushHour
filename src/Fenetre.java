@@ -27,7 +27,7 @@ public class Fenetre extends JFrame {
     public Fenetre() {
         setSize(400, 590);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setResizable(false);
+        setResizable(true);
         setLocationRelativeTo(null);
         setTitle("Rush Hour");
         creerMenu();
@@ -96,6 +96,7 @@ public class Fenetre extends JFrame {
 
     public void niveau(int niveau, Model model) {
         //Model model = new Model(niveau);
+        Color c = new Color(0, 0, 0, 0);
         panelPrincipale = new JPanel();
         Vehicule[][] tabVehicule;
         tabVehicule = model.getVehicule();
@@ -109,13 +110,13 @@ public class Fenetre extends JFrame {
         for (int i = 0; i < tabVehicule.length; i++) {
             for (int j = 0; j < tabVehicule[0].length; j++) {
 
-            if (fait[i][j] == false) {
+                if (fait[i][j] == false) {
                     if (tabVehicule[i][j] != null) {
 
                         if (tabVehicule[i][j].isVoiture()) {
                             if (j + 1 < 6) {
                                 if (tabVehicule[i][j].equals(tabVehicule[i][j + 1])) {
-                                    tabBoutonvehicule[i][j] = new JButton("ar" + tabVehicule[i][j].getCouleur());
+                                    tabBoutonvehicule[i][j] = new JButton("ar" + tabVehicule[i][j].getCouleur());               //voiture_arr_
                                     tabBoutonvehicule[i][j + 1] = new JButton("av" + tabVehicule[i][j + 1].getCouleur());
                                     fait[i][j + 1] = true;
                                 }
@@ -149,10 +150,12 @@ public class Fenetre extends JFrame {
                                 }
                             }
                         }
-                    }else {
+                    } else {
                         tabBoutonvehicule[i][j] = new JButton();
 
                     }
+
+                    //tabBoutonvehicule[i][j].setBorder(null);
 
 
                 }
@@ -165,11 +168,24 @@ public class Fenetre extends JFrame {
             }
             System.out.println();
         }*/
+        tabBoutonvehicule[0][5] = new JButton(new ImageIcon("image/Camion_Av_2.png"));
+        JPanel pan = new JPanel();
+        pan.add(tabBoutonvehicule[0][5]);
 
+
+        //tabBoutonvehicule[0][5].setBackground(Color.white);
+        tabBoutonvehicule[1][5] = new JButton(new ImageIcon("image/Camion_mi_2.png"));
+        tabBoutonvehicule[1][5].setBorder(null);
+        tabBoutonvehicule[1][5].setBackground(c);
+        //tabBoutonvehicule[1][5].setSize(100,100);
+        //tabBoutonvehicule[0][5].setSize(50,50);
+        tabBoutonvehicule[2][5] = new JButton(new ImageIcon("image/Camion_Arr_2.png"));
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
-
-                panelJeu.add(tabBoutonvehicule[i][j]);
+                if (i == 0/*||i==1||i==2)*/ && j == 5) {
+                    panelJeu.add(pan);
+                } else
+                    panelJeu.add(tabBoutonvehicule[i][j]);
             }
         }
         panelPrincipale.add(panelJeu);

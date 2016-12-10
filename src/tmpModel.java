@@ -9,12 +9,12 @@ public class tmpModel {
     public static void main(String[] args) {
         Model model = new Model(1);
         Voiture v1 = new Voiture(Vehicule.BLEU);
-        Voiture v2 = new Voiture(Vehicule.ROUGE);
+        Voiture v2 = new Voiture(Vehicule.ORANGE);
         Voiture v3 = new Voiture(Vehicule.BRUN);
         Voiture v4 = new Voiture(Vehicule.JAUNE);
         Camion  c1 = new Camion(Vehicule.VIOLET);
         Camion  c2 = new Camion(Vehicule.BLEU);
-        Camion  c3 = new Camion(Vehicule.ORANGE);
+        Camion  c3 = new Camion(Vehicule.ROUGE);
         Camion  c4 = new Camion(Vehicule.VERT);
         Vehicule[][] tab = new Vehicule[6][6];
         for (int i = 0; i < 6; i++) {
@@ -66,7 +66,7 @@ public class tmpModel {
         }
         System.out.println(m2);
         Fenetre fenetre = new Fenetre();
-        fenetre.niveau(1,model);
+        fenetre.niveau(1,m2);
     }
 
 }
