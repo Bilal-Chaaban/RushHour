@@ -13,7 +13,7 @@ public class tmpModel {
         Voiture v3 = new Voiture(Vehicule.BRUN);
         Voiture v4 = new Voiture(Vehicule.JAUNE);
         Camion  c1 = new Camion(Vehicule.VIOLET);
-        Camion  c2 = new Camion(Vehicule.BLEU);
+        Camion  c2 = new Camion(Vehicule.BRUN);
         Camion  c3 = new Camion(Vehicule.ROUGE);
         Camion  c4 = new Camion(Vehicule.VERT);
         Vehicule[][] tab = new Vehicule[6][6];
