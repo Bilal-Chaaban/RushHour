@@ -100,6 +100,7 @@ public class Fenetre extends JFrame {
 
     public void affiche(){
         panelPrincipale = new JPanel();
+        panelJeu = new JPanel(new GridLayout(6, 6));
         Vehicule[][] tabVehicule;
         tabVehicule = model.getVehicule();
         tabBoutonvehicule = new JButton[6][6];
@@ -118,15 +119,15 @@ public class Fenetre extends JFrame {
                         if (tabVehicule[i][j].isVoiture()) {
                             if (j + 1 < 6) {
                                 if (tabVehicule[i][j].equals(tabVehicule[i][j + 1])) {
-                                    tabBoutonvehicule[i][j] = new JButton("ar" + tabVehicule[i][j].getCouleur());               //voiture_arr_
-                                    tabBoutonvehicule[i][j + 1] = new JButton("av" + tabVehicule[i][j + 1].getCouleur());
+                                    tabBoutonvehicule[i][j] = new JButton(new ImageIcon("Voiture_Arr_" + tabVehicule[i][j].getCouleur()));               //voiture_arr_
+                                    tabBoutonvehicule[i][j + 1] = new JButton(new ImageIcon("Voiture_Av_" + tabVehicule[i][j + 1].getCouleur()));
                                     fait[i][j + 1] = true;
                                 }
                             }
                             if (i + 1 < 6) {
                                 if (tabVehicule[i][j].equals(tabVehicule[i + 1][j])) {
-                                    tabBoutonvehicule[i][j] = new JButton("av" + tabVehicule[i][j].getCouleur());
-                                    tabBoutonvehicule[i + 1][j] = new JButton("ar" + tabVehicule[i + 1][j].getCouleur());
+                                    tabBoutonvehicule[i][j] = new JButton(new ImageIcon("Voiture_Av_" + tabVehicule[i][j].getCouleur()));
+                                    tabBoutonvehicule[i + 1][j] = new JButton(new ImageIcon("Voiture_Arr_" + tabVehicule[i + 1][j].getCouleur()));
                                     fait[i + 1][j] = true;
                                 }
                             }
@@ -134,9 +135,9 @@ public class Fenetre extends JFrame {
                         } else if (tabVehicule[i][j].isCamion()) {
                             if (j + 2 < 6) {
                                 if (tabVehicule[i][j].equals(tabVehicule[i][j + 2])) {
-                                    tabBoutonvehicule[i][j] = new JButton(new ImageIcon("arr" + tabVehicule[i][j].getCouleur());
-                                    tabBoutonvehicule[i][j + 1] = new JButton("m" + tabVehicule[i][j + 1].getCouleur());
-                                    tabBoutonvehicule[i][j + 2] = new JButton("av" + tabVehicule[i][j + 2].getCouleur());
+                                    tabBoutonvehicule[i][j] = new JButton(new ImageIcon("Camion_Arr_" + tabVehicule[i][j].getCouleur()));
+                                    tabBoutonvehicule[i][j + 1] = new JButton(new ImageIcon("Camion_mi_" + tabVehicule[i][j + 1].getCouleur()));
+                                    tabBoutonvehicule[i][j + 2] = new JButton(new ImageIcon("Camion_Av_" + tabVehicule[i][j + 2].getCouleur()));
                                     fait[i][j + 1] = true;
                                     fait[i][j + 2] = true;
                                 }
@@ -144,9 +145,9 @@ public class Fenetre extends JFrame {
 
                             if (i + 2 < 6) {
                                 if (tabVehicule[i][j].equals(tabVehicule[i + 2][j])) {
-                                    tabBoutonvehicule[i][j] = new JButton("av" + tabVehicule[i][j].getCouleur());
-                                    tabBoutonvehicule[i + 1][j] = new JButton("m" + tabVehicule[i + 1][j].getCouleur());
-                                    tabBoutonvehicule[i + 2][j] = new JButton("ar" + tabVehicule[i + 2][j].getCouleur());
+                                    tabBoutonvehicule[i][j] = new JButton(new ImageIcon("Camion_Av_" + tabVehicule[i][j].getCouleur()));
+                                    tabBoutonvehicule[i + 1][j] = new JButton(new ImageIcon("Camion_mi_" + tabVehicule[i + 1][j].getCouleur()));
+                                    tabBoutonvehicule[i + 2][j] = new JButton(new ImageIcon("Camion_Arr" + tabVehicule[i + 2][j].getCouleur()));
                                     fait[i + 1][j] = true;
                                     fait[i + 2][j] = true;
                                 }
@@ -164,11 +165,24 @@ public class Fenetre extends JFrame {
                 fait[i][j] = true;
             }
         }
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                //if (i == 0/*||i==1||i==2)*/ && j == 5) {
+                //  panelJeu.add(pan);
+                //} else
+                tabBoutonvehicule[i][j].setPreferredSize(new Dimension(100, 100));
+                panelJeu.add(tabBoutonvehicule[i][j]);
+            }
+        }
+        panelPrincipale.add(panelJeu);
+        setContentPane(panelPrincipale);
+        setVisible(true);
     }
 
 
 
     public void niveau(int niveau, Model model) {
+        affiche();
         //Model model = new Model(niveau);
       /*  Color c = new Color(0, 0, 0, 0);
         panelPrincipale = new JPanel();
@@ -242,9 +256,9 @@ public class Fenetre extends JFrame {
             }
             System.out.println();
         }*/
-        tabBoutonvehicule[0][5] = new JButton(new ImageIcon("image/Camion_Av_2.png"));
+        /*tabBoutonvehicule[0][5] = new JButton(new ImageIcon("image/Camion_Av_2.png"));
         tabBoutonvehicule[1][5] = new JButton(new ImageIcon("image/Camion_mi_2.png"));
-        tabBoutonvehicule[2][5] = new JButton(new ImageIcon("image/Camion_Arr_2.png"));
+        tabBoutonvehicule[2][5] = new JButton(new ImageIcon("image/Camion_Arr_2.png"));*/
         //JPanel pan = new JPanel();
         //pan.add(tabBoutonvehicule[0][5]);
         //pan.add(tabBoutonvehicule[1][5]);
@@ -256,18 +270,8 @@ public class Fenetre extends JFrame {
         //tabBoutonvehicule[1][5].setBackground(c);
         //tabBoutonvehicule[1][5].setSize(100,100);
         //tabBoutonvehicule[0][5].setSize(50,50);
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
-                //if (i == 0/*||i==1||i==2)*/ && j == 5) {
-                  //  panelJeu.add(pan);
-                //} else
-                    tabBoutonvehicule[i][j].setPreferredSize(new Dimension(100, 100));
-                    panelJeu.add(tabBoutonvehicule[i][j]);
-            }
-        }
-        panelPrincipale.add(panelJeu);
-        setContentPane(panelPrincipale);
-        setVisible(true);
+
+
     }
 
 
@@ -289,4 +293,7 @@ public class Fenetre extends JFrame {
     }
 
 
+    public void setModel(Model model) {
+        this.model = model;
+    }
 }
