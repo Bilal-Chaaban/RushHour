@@ -8,10 +8,13 @@ import java.awt.event.ActionListener;
 public class Controller implements ActionListener {
     protected Fenetre fenetre;
     private Chrono chrono;
-
+    protected Model model;
     public Controller(Fenetre f){
         fenetre=f;
         chrono=new Chrono(fenetre.getChrono());
+    }
+    public void setModel(Model m){
+        model=m;
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -35,11 +38,35 @@ public class Controller implements ActionListener {
             fenetre.creerMenu();
 
         }
-
+        Vehicule v=null;
+        int k=0,l=0;
         JButton[][] tabBouton=fenetre.getTabBoutonvehicule();
         for (int i = 0; i < tabBouton.length; i++) {
             for (int j = 0; j < tabBouton[0].length; j++) {
+                if (e.getSource()==tabBouton[i][j]){
+                    v=model.getVehiculeIndex(i,j);
+                    k=i;
+                    l=j;
+                }
+            }
+        }
+        if (v!=null){
+            if(k<5){
+                if (v==model.getVehiculeIndex(k+1,l))
+                    model.deplacer(v,Model.HAUT);
 
+            }
+            if (k>0){
+                if (v==model.getVehiculeIndex(k-1,l))
+                    model.deplacer(v,Model.BAS);
+            }
+            if (l<5){
+                if (v==model.getVehiculeIndex(k,l+1))
+                    model.deplacer(v,Model.GAUCHE);
+            }
+            if (l>0){
+                if (v==model.getVehiculeIndex(k,l-1))
+                    model.deplacer(v,Model.DROITE);
             }
         }
         fenetre.setVisible(true);

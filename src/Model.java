@@ -70,6 +70,10 @@ public class Model {
         return vehicule;
     }
 
+    public Vehicule getVehiculeIndex(int i,int j){
+        return vehicule[i][j];
+    }
+
     public void init(int niveau) {
         //lecture dans un fichier la position des vehicule en fct du niv passer en param
         for (int i = 0; i < 6; i++) {
