@@ -37,6 +37,10 @@ public class Fenetre extends JFrame {
 
     }
 
+    public JButton[][] getTabBoutonvehicule() {
+        return tabBoutonvehicule;
+    }
+
     public JLabel getChrono() {
         return chrono;
     }

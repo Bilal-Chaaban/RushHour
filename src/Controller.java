@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -33,6 +34,13 @@ public class Controller implements ActionListener {
             System.out.println("test");
             fenetre.creerMenu();
 
+        }
+
+        JButton[][] tabBouton=fenetre.getTabBoutonvehicule();
+        for (int i = 0; i < tabBouton.length; i++) {
+            for (int j = 0; j < tabBouton[0].length; j++) {
+
+            }
         }
         fenetre.setVisible(true);
     }
