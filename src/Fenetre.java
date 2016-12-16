@@ -25,7 +25,7 @@ public class Fenetre extends JFrame {
     protected JLabel t = new JLabel("RUSH HOUR");
 
     public Fenetre() {
-        setSize(400, 590);
+        setSize(800, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
         setLocationRelativeTo(null);
@@ -173,22 +173,25 @@ public class Fenetre extends JFrame {
             System.out.println();
         }*/
         tabBoutonvehicule[0][5] = new JButton(new ImageIcon("image/Camion_Av_2.png"));
-        JPanel pan = new JPanel();
-        pan.add(tabBoutonvehicule[0][5]);
+        tabBoutonvehicule[1][5] = new JButton(new ImageIcon("image/Camion_mi_2.png"));
+        tabBoutonvehicule[2][5] = new JButton(new ImageIcon("image/Camion_Arr_2.png"));
+        //JPanel pan = new JPanel();
+        //pan.add(tabBoutonvehicule[0][5]);
+        //pan.add(tabBoutonvehicule[1][5]);
+        //pan.add(tabBoutonvehicule[2][5]);
 
 
         //tabBoutonvehicule[0][5].setBackground(Color.white);
-        tabBoutonvehicule[1][5] = new JButton(new ImageIcon("image/Camion_mi_2.png"));
-        tabBoutonvehicule[1][5].setBorder(null);
-        tabBoutonvehicule[1][5].setBackground(c);
+        //tabBoutonvehicule[1][5].setBorder(null);
+        //tabBoutonvehicule[1][5].setBackground(c);
         //tabBoutonvehicule[1][5].setSize(100,100);
         //tabBoutonvehicule[0][5].setSize(50,50);
-        tabBoutonvehicule[2][5] = new JButton(new ImageIcon("image/Camion_Arr_2.png"));
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
-                if (i == 0/*||i==1||i==2)*/ && j == 5) {
-                    panelJeu.add(pan);
-                } else
+                //if (i == 0/*||i==1||i==2)*/ && j == 5) {
+                  //  panelJeu.add(pan);
+                //} else
+                    tabBoutonvehicule[i][j].setPreferredSize(new Dimension(100, 100));
                     panelJeu.add(tabBoutonvehicule[i][j]);
             }
         }
