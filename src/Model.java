@@ -17,6 +17,9 @@ public class Model {
     }
 
     public boolean isNull(int i, int j) {
+        if (i<=0||i>5||j<=0||j>5){
+            return false;
+        }
         return vehicule[i][j] == null;
     }
 
@@ -71,7 +74,10 @@ public class Model {
     }
 
     public Vehicule getVehiculeIndex(int i,int j){
-        return vehicule[i][j];
+        if (vehicule[i][j]!=null){
+            return vehicule[i][j];
+        }
+        return null;
     }
 
     public void init(int niveau) {

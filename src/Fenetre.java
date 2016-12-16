@@ -21,7 +21,7 @@ public class Fenetre extends JFrame {
     protected JMenu menu1;
     protected JMenuItem menuPrincipale = new JMenuItem("menu Princpale");
     protected JLabel chrono = new JLabel("0.00");
-
+    protected Model model;
     protected JLabel t = new JLabel("RUSH HOUR");
 
     public Fenetre() {
@@ -98,9 +98,79 @@ public class Fenetre extends JFrame {
         setJMenuBar(barMenu);
     }
 
+    public void affiche(){
+        panelPrincipale = new JPanel();
+        Vehicule[][] tabVehicule;
+        tabVehicule = model.getVehicule();
+        tabBoutonvehicule = new JButton[6][6];
+        boolean fait[][] = new boolean[6][6];
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                fait[i][j] = false;
+            }
+        }
+        for (int i = 0; i < tabVehicule.length; i++) {
+            for (int j = 0; j < tabVehicule[0].length; j++) {
+
+                if (fait[i][j] == false) {
+                    if (tabVehicule[i][j] != null) {
+
+                        if (tabVehicule[i][j].isVoiture()) {
+                            if (j + 1 < 6) {
+                                if (tabVehicule[i][j].equals(tabVehicule[i][j + 1])) {
+                                    tabBoutonvehicule[i][j] = new JButton("ar" + tabVehicule[i][j].getCouleur());               //voiture_arr_
+                                    tabBoutonvehicule[i][j + 1] = new JButton("av" + tabVehicule[i][j + 1].getCouleur());
+                                    fait[i][j + 1] = true;
+                                }
+                            }
+                            if (i + 1 < 6) {
+                                if (tabVehicule[i][j].equals(tabVehicule[i + 1][j])) {
+                                    tabBoutonvehicule[i][j] = new JButton("av" + tabVehicule[i][j].getCouleur());
+                                    tabBoutonvehicule[i + 1][j] = new JButton("ar" + tabVehicule[i + 1][j].getCouleur());
+                                    fait[i + 1][j] = true;
+                                }
+                            }
+
+                        } else if (tabVehicule[i][j].isCamion()) {
+                            if (j + 2 < 6) {
+                                if (tabVehicule[i][j].equals(tabVehicule[i][j + 2])) {
+                                    tabBoutonvehicule[i][j] = new JButton(new ImageIcon("arr" + tabVehicule[i][j].getCouleur());
+                                    tabBoutonvehicule[i][j + 1] = new JButton("m" + tabVehicule[i][j + 1].getCouleur());
+                                    tabBoutonvehicule[i][j + 2] = new JButton("av" + tabVehicule[i][j + 2].getCouleur());
+                                    fait[i][j + 1] = true;
+                                    fait[i][j + 2] = true;
+                                }
+                            }
+
+                            if (i + 2 < 6) {
+                                if (tabVehicule[i][j].equals(tabVehicule[i + 2][j])) {
+                                    tabBoutonvehicule[i][j] = new JButton("av" + tabVehicule[i][j].getCouleur());
+                                    tabBoutonvehicule[i + 1][j] = new JButton("m" + tabVehicule[i + 1][j].getCouleur());
+                                    tabBoutonvehicule[i + 2][j] = new JButton("ar" + tabVehicule[i + 2][j].getCouleur());
+                                    fait[i + 1][j] = true;
+                                    fait[i + 2][j] = true;
+                                }
+                            }
+                        }
+                    } else {
+                        tabBoutonvehicule[i][j] = new JButton();
+
+                    }
+
+                    //tabBoutonvehicule[i][j].setBorder(null);
+
+
+                }
+                fait[i][j] = true;
+            }
+        }
+    }
+
+
+
     public void niveau(int niveau, Model model) {
         //Model model = new Model(niveau);
-        Color c = new Color(0, 0, 0, 0);
+      /*  Color c = new Color(0, 0, 0, 0);
         panelPrincipale = new JPanel();
         Vehicule[][] tabVehicule;
         tabVehicule = model.getVehicule();
@@ -165,7 +235,7 @@ public class Fenetre extends JFrame {
                 }
                 fait[i][j] = true;
             }
-        }
+        }*/
         /*for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
                 System.out.print(fait[i][j]);
@@ -211,6 +281,11 @@ public class Fenetre extends JFrame {
         jouer[0].addActionListener(listener);
         nouvellePartie.addActionListener(listener);
         menuPrincipale.addActionListener(listener);
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                tabBoutonvehicule[i][j].addActionListener(listener);
+            }
+        }
     }
 
 

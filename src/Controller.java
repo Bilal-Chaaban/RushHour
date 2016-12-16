@@ -68,6 +68,9 @@ public class Controller implements ActionListener {
                 if (v==model.getVehiculeIndex(k,l-1))
                     model.deplacer(v,Model.DROITE);
             }
+            System.out.println(model);
+            fenetre.niveau(1,model);
+
         }
         fenetre.setVisible(true);
     }

@@ -66,7 +66,10 @@ public class tmpModel {
         }
         System.out.println(m2);
         Fenetre fenetre = new Fenetre();
+        Controller controller=new Controller(fenetre);
+        controller.setModel(m2);
         fenetre.niveau(1,m2);
+        fenetre.setButtonControler(controller);
     }
 
 }
