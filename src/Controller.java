@@ -36,10 +36,13 @@ public class Controller implements ActionListener {
             fenetre.creerMenuJouer();
         }
         if (fenetre.menuPrincipale == e.getSource()) {
-
             fenetre.creerMenu();
+        }
+
+        if (fenetre.reset == e.getSource()){
 
         }
+
         Vehicule v = null;
         int k = 0, l = 0;
         JButton[][] tabBouton = fenetre.getTabBoutonvehicule();

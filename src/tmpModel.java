@@ -75,6 +75,7 @@ public class tmpModel {
                 controller.setModel(m2);
                 fenetre.niveau(1, m2);
                 fenetre.setButtonControler(controller);
+                fenetre.menuReset();
 
             }
         });

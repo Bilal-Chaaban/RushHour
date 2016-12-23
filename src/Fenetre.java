@@ -17,7 +17,8 @@ public class Fenetre extends JFrame {
     protected JPanel panelBoutonJouer = new JPanel(new GridLayout(4, 3, 2, 10));
 
     protected JMenuBar barMenu;
-    protected JMenuItem nouvellePartie = new JMenuItem(" Nouvelle Partie");
+    protected JMenuItem nouvellePartie = new JMenuItem("Nouvelle Partie");
+    protected JMenuItem reset = new JMenuItem("Reset");
     protected JMenu menu1;
     protected JMenuItem menuPrincipale = new JMenuItem("menu Princpale");
     protected JLabel chrono = new JLabel("0.00");
@@ -98,6 +99,12 @@ public class Fenetre extends JFrame {
         setJMenuBar(barMenu);
     }
 
+    public void menuReset(){
+        barMenu = new JMenuBar();
+        barMenu.add(reset);
+        setJMenuBar(barMenu);
+    }
+
     public void affiche(){
         panelPrincipale = new JPanel();
         panelJeu = new JPanel(new GridLayout(6, 6));
@@ -155,6 +162,7 @@ public class Fenetre extends JFrame {
                         }
                     } else {
                         tabBoutonvehicule[i][j] = new JButton();
+                        //tabBoutonvehicule[i][j].setVisible(false);
 
                     }
 
@@ -284,6 +292,7 @@ public class Fenetre extends JFrame {
 */
         jouer[0].addActionListener(listener);
         nouvellePartie.addActionListener(listener);
+        reset.addActionListener(listener);
         menuPrincipale.addActionListener(listener);
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
