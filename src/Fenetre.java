@@ -126,8 +126,8 @@ public class Fenetre extends JFrame {
                         if (tabVehicule[i][j].isVoiture()) {
                             if (j + 1 < 6) {
                                 if (tabVehicule[i][j].equals(tabVehicule[i][j + 1])) {
-                                    tabBoutonvehicule[i][j] = new JButton(new ImageIcon("image/Voiture_Arr_" + tabVehicule[i][j].getCouleur()+".png"));               //voiture_arr_
-                                    tabBoutonvehicule[i][j + 1] = new JButton(new ImageIcon("image/Voiture_Av_" + tabVehicule[i][j + 1].getCouleur()+".png"));
+                                    tabBoutonvehicule[i][j] = new JButton(new ImageIcon("image/Voiture_Av_" + tabVehicule[i][j].getCouleur()+"_h.png"));               //voiture_arr_
+                                    tabBoutonvehicule[i][j + 1] = new JButton(new ImageIcon("image/Voiture_Arr_" + tabVehicule[i][j + 1].getCouleur()+"_h.png"));
                                     fait[i][j + 1] = true;
                                 }
                             }
@@ -142,9 +142,9 @@ public class Fenetre extends JFrame {
                         } else if (tabVehicule[i][j].isCamion()) {
                             if (j + 2 < 6) {
                                 if (tabVehicule[i][j].equals(tabVehicule[i][j + 2])) {
-                                    tabBoutonvehicule[i][j] = new JButton(new ImageIcon("image/Camion_Arr_" + tabVehicule[i][j].getCouleur()+".png"));
-                                    tabBoutonvehicule[i][j + 1] = new JButton(new ImageIcon("image/Camion_mi_" + tabVehicule[i][j + 1].getCouleur()+".png"));
-                                    tabBoutonvehicule[i][j + 2] = new JButton(new ImageIcon("image/Camion_Av_" + tabVehicule[i][j + 2].getCouleur()+".png"));
+                                    tabBoutonvehicule[i][j] = new JButton(new ImageIcon("image/Camion_Arr_" + tabVehicule[i][j].getCouleur()+"_h.png"));
+                                    tabBoutonvehicule[i][j + 1] = new JButton(new ImageIcon("image/Camion_mi_" + tabVehicule[i][j + 1].getCouleur()+"_h.png"));
+                                    tabBoutonvehicule[i][j + 2] = new JButton(new ImageIcon("image/Camion_Av_" + tabVehicule[i][j + 2].getCouleur()+"_h.png"));
                                     fait[i][j + 1] = true;
                                     fait[i][j + 2] = true;
                                 }
