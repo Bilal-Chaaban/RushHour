@@ -5,19 +5,19 @@ import java.io.*;
  */
 public class Model {
 
-    private Vehicule[][] vehicule = new Vehicule[6][6];
-
     public static final int HAUT = 7;
     public static final int BAS = 8;
     public static final int GAUCHE = 9;
     public static final int DROITE = 10;
+    private Vehicule[][] vehicule = new Vehicule[6][6];
 
     public Model(int niveau) {
         init(niveau);
     }
 
     public boolean isNull(int i, int j) {
-        if (i<=0||i>5||j<=0||j>5){
+
+        if (i < 0 || i > 5 || j < 0 || j > 5) {
             return false;
         }
         return vehicule[i][j] == null;
@@ -25,28 +25,29 @@ public class Model {
 
     public void deplacer(Vehicule v, int direction) {
         int[] position = getPosition(v);
-        if ((direction == 9 && position[1] != 0)) {
+        if ((direction == GAUCHE && position[1] != 0)) {
             if (isNull(position[0], position[1] - 1)) {
                 vehicule[position[0]][position[1] - 1] = v;
                 vehicule[position[0]][position[1] + v.taille - 1] = null;
             }
         }
-        if ((direction == 10 && position[1] < (5 - v.taille))) {
-            if (isNull(position[0], position[1] + v.taille - 1)) {
-                vehicule[position[0]][position[1] + v.taille - 1] = v;
+        if ((direction == DROITE && position[1] < (5 - v.taille + 1))) {
+            if (isNull(position[0], position[1] + v.taille)) {
+                vehicule[position[0]][position[1] + v.taille] = v;
                 vehicule[position[0]][position[1]] = null;
             }
         }
-        if ((direction == 7 && position[0] != 0)) {
-            if (isNull(position[0] - v.taille + 1, position[1])) {
-                vehicule[position[0] - v.taille + 1][position[1]] = v;
+        if ((direction == BAS && position[0] < (5 - v.taille + 1))) {
+            if (isNull(position[0] + v.taille, position[1])) {
+                vehicule[position[0] + v.taille][position[1]] = v;
                 vehicule[position[0]][position[1]] = null;
             }
         }
-        if ((direction == 8 && position[0] < (5 - v.taille - 1))) {
-            if (isNull(position[0] + 1, position[1])) {
-                vehicule[position[0] + 1][position[1]] = v;
-                vehicule[position[0] - v.taille - 1][position[1]] = null;
+        if ((direction == HAUT && position[0] != 0)) {
+            if (isNull(position[0] - 1, position[1])) {
+
+                vehicule[position[0] - 1][position[1]] = v;
+                vehicule[position[0] + v.taille - 1][position[1]] = null;
             }
         }
     }
@@ -55,7 +56,7 @@ public class Model {
     public int[] getPosition(Vehicule v) {
         int[] tab = new int[2];
         for (int i = 5; i >= 0; i--) {
-            for (int j = 0; j < 6; j++) {
+            for (int j = 5; j >= 0; j--) {
                 if (v.equals(vehicule[i][j])) {
                     tab[0] = i;
                     tab[1] = j;
@@ -65,12 +66,12 @@ public class Model {
         return tab;
     }
 
-    public void setVehicule(Vehicule[][] vehicule) {
-        this.vehicule = vehicule;
-    }
-
     public Vehicule[][] getVehicule() {
         return vehicule;
+    }
+
+    public void setVehicule(Vehicule[][] vehicule) {
+        this.vehicule = vehicule;
     }
 
     public Vehicule getVehiculeIndex(int i,int j){

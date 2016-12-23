@@ -7,71 +7,117 @@ import java.awt.event.ActionListener;
  */
 public class Controller implements ActionListener {
     protected Fenetre fenetre;
-    private Chrono chrono;
     protected Model model;
-    public Controller(Fenetre f){
-        fenetre=f;
-        chrono=new Chrono(fenetre.getChrono());
+    private Chrono chrono;
+
+    public Controller(Fenetre f) {
+        fenetre = f;
+        chrono = new Chrono(fenetre.getChrono());
     }
-    public void setModel(Model m){
-        model=m;
+
+    public void setModel(Model m) {
+        model = m;
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        //System.out.println("test");
-       //fenetre.setVisible(false);
-        if (e.getSource()==fenetre.getBouton1()){
+
+        if (e.getSource() == fenetre.getBouton1()) {
             fenetre.creerMenuJouer();
             fenetre.creerMenu2();
         }
-        if (e.getSource()==fenetre.getJouer()[0]) {
+        if (e.getSource() == fenetre.getJouer()[0]) {
             fenetre.creerJouer();
             chrono.start();
         }
-        if (fenetre.nouvellePartie==(e.getSource())){
+        if (fenetre.nouvellePartie == (e.getSource())) {
             chrono.stopChrono();
-            chrono=new Chrono(fenetre.chrono);
+            chrono = new Chrono(fenetre.chrono);
             fenetre.creerMenuJouer();
         }
-        if (fenetre.menuPrincipale==e.getSource()){
-            System.out.println("test");
+        if (fenetre.menuPrincipale == e.getSource()) {
+
             fenetre.creerMenu();
 
         }
-        Vehicule v=null;
-        int k=0,l=0;
-        JButton[][] tabBouton=fenetre.getTabBoutonvehicule();
+        Vehicule v = null;
+        int k = 0, l = 0;
+        JButton[][] tabBouton = fenetre.getTabBoutonvehicule();
         for (int i = 0; i < tabBouton.length; i++) {
             for (int j = 0; j < tabBouton[0].length; j++) {
-                if (e.getSource()==tabBouton[i][j]){
-                    v=model.getVehiculeIndex(i,j);
-                    k=i;
-                    l=j;
+                if (e.getSource() == tabBouton[i][j]) {
+                    v = model.getVehiculeIndex(i, j);
+                    k = i;
+                    l = j;
                 }
             }
         }
-        if (v!=null){
-            if(k<5){
-                if (v==model.getVehiculeIndex(k+1,l))
-                    model.deplacer(v,Model.HAUT);
+        if (v != null) {
+            boolean valide = true;
+            if (v.isVoiture()) {
+                if (k < 5) {
+                    if (v == model.getVehiculeIndex(k + 1, l) && valide) {
+                        model.deplacer(v, Model.HAUT);
+                        valide = false;
 
-            }
-            if (k>0){
-                if (v==model.getVehiculeIndex(k-1,l))
-                    model.deplacer(v,Model.BAS);
-            }
-            if (l<5){
-                if (v==model.getVehiculeIndex(k,l+1))
-                    model.deplacer(v,Model.GAUCHE);
-            }
-            if (l>0){
-                if (v==model.getVehiculeIndex(k,l-1))
-                    model.deplacer(v,Model.DROITE);
-            }
-            System.out.println(model);
-            fenetre.niveau(1,model);
+                    }
 
+                } else if (k > 0) {
+                    if (v == model.getVehiculeIndex(k - 1, l) && valide) {
+                        model.deplacer(v, Model.BAS);
+                        valide = false;
+
+                    }
+                }
+                if (l < 5) {
+                    if (v == model.getVehiculeIndex(k, l + 1) && valide) {
+                        model.deplacer(v, Model.GAUCHE);
+                        valide = false;
+                    }
+                }
+                if (l > 0) {
+                    if (v == model.getVehiculeIndex(k, l - 1) && valide)
+                        model.deplacer(v, Model.DROITE);
+                    valide = false;
+                }
+
+
+            } else {
+                if (k < 4) {
+                    if (v == model.getVehiculeIndex(k + 2, l) && valide) {
+                        model.deplacer(v, Model.HAUT);
+                        valide = false;
+
+                    }
+
+                }
+                if (k > 1) {
+                    if (v == model.getVehiculeIndex(k - 2, l) && valide) {
+                        model.deplacer(v, Model.BAS);
+                        valide = false;
+
+                    }
+                }
+                if (l < 4) {
+                    if (v == model.getVehiculeIndex(k, l + 2) && valide) {
+                        model.deplacer(v, Model.GAUCHE);
+                        valide = false;
+                    }
+                }
+                if (l > 1) {
+                    if (v == model.getVehiculeIndex(k, l - 2) && valide) {
+                        model.deplacer(v, Model.DROITE);
+                        valide = false;
+                    }
+                }
+            }
+
+            fenetre.niveau(1, model);
+            fenetre.affiche();
+            fenetre.setButtonControler(this);
         }
+
         fenetre.setVisible(true);
     }
+
 }
