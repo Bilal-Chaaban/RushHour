@@ -24,6 +24,7 @@ public class Fenetre extends JFrame {
     protected JLabel chrono = new JLabel("0.00");
     protected Model model;
     protected JLabel t = new JLabel("RUSH HOUR");
+    protected JMenuItem regles = new JMenuItem("Règles du jeu");
 
     public Fenetre() {
         setSize(800, 700);
@@ -102,6 +103,7 @@ public class Fenetre extends JFrame {
     public void menuReset(){
         barMenu = new JMenuBar();
         barMenu.add(reset);
+        barMenu.add(regles);
         setJMenuBar(barMenu);
     }
 
@@ -294,6 +296,7 @@ public class Fenetre extends JFrame {
         nouvellePartie.addActionListener(listener);
         reset.addActionListener(listener);
         menuPrincipale.addActionListener(listener);
+        regles.addActionListener(listener);
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
                 tabBoutonvehicule[i][j].addActionListener(listener);

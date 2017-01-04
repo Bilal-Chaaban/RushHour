@@ -40,7 +40,12 @@ public class Controller implements ActionListener {
         }
 
         if (fenetre.reset == e.getSource()){
+            
+        }
 
+        // Affiche la fenetre des règles du jeu
+        if (e.getSource() == fenetre.regles) {
+            new RegleJeu();
         }
 
         Vehicule v = null;
