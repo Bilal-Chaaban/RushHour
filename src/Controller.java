@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
  */
 public class Controller implements ActionListener {
     protected Fenetre fenetre;
-    protected Model model;
+    //protected Model fenetre.model;
     private Chrono chrono;
 
     public Controller(Fenetre f) {
@@ -15,9 +15,9 @@ public class Controller implements ActionListener {
         chrono = new Chrono(fenetre.getChrono());
     }
 
-    public void setModel(Model m) {
-        model = m;
-    }
+    //public void setModel(Model m) {
+    //    fenetre.model = m;
+    //}
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -60,67 +60,70 @@ public class Controller implements ActionListener {
         for (int i = 0; i < tabBouton.length; i++) {
             for (int j = 0; j < tabBouton[0].length; j++) {
                 if (e.getSource() == tabBouton[i][j]) {
-                    v = model.getVehiculeIndex(i, j);
+                    v = fenetre.model.getVehiculeIndex(i, j);
                     k = i;
                     l = j;
                 }
             }
         }
+
         if (v != null) {
             boolean valide = true;
             if (v.isVoiture()) {
+                System.out.println("test2");
                 if (k < 5) {
-                    if (v == model.getVehiculeIndex(k + 1, l) && valide) {
-                        model.deplacer(v, Model.HAUT);
+                    if (v == fenetre.model.getVehiculeIndex(k + 1, l) && valide) {
+                        fenetre.model.deplacer(v, Model.HAUT);
                         valide = false;
 
                     }
 
                 } else if (k > 0) {
-                    if (v == model.getVehiculeIndex(k - 1, l) && valide) {
-                        model.deplacer(v, Model.BAS);
+                    if (v == fenetre.model.getVehiculeIndex(k - 1, l) && valide) {
+                        fenetre.model.deplacer(v, Model.BAS);
                         valide = false;
+                        System.out.println("test1");
 
                     }
                 }
                 if (l < 5) {
-                    if (v == model.getVehiculeIndex(k, l + 1) && valide) {
-                        model.deplacer(v, Model.GAUCHE);
+                    if (v == fenetre.model.getVehiculeIndex(k, l + 1) && valide) {
+                        fenetre.model.deplacer(v, Model.GAUCHE);
                         valide = false;
                     }
                 }
                 if (l > 0) {
-                    if (v == model.getVehiculeIndex(k, l - 1) && valide)
-                        model.deplacer(v, Model.DROITE);
+                    if (v == fenetre.model.getVehiculeIndex(k, l - 1) && valide)
+                        fenetre.model.deplacer(v, Model.DROITE);
                     valide = false;
                 }
 
 
             } else {
                 if (k < 4) {
-                    if (v == model.getVehiculeIndex(k + 2, l) && valide) {
-                        model.deplacer(v, Model.HAUT);
+                    if (v == fenetre.model.getVehiculeIndex(k + 2, l) && valide) {
+                        fenetre.model.deplacer(v, Model.HAUT);
                         valide = false;
 
                     }
 
                 }
                 if (k > 1) {
-                    if (v == model.getVehiculeIndex(k - 2, l) && valide) {
-                        model.deplacer(v, Model.BAS);
+                    if (v == fenetre.model.getVehiculeIndex(k - 2, l) && valide) {
+                        fenetre.model.deplacer(v, Model.BAS);
                         valide = false;
 
                     }
                 }
                 if (l < 4) {
-                    if (v == model.getVehiculeIndex(k, l + 2) && valide) {
-                        model.deplacer(v, Model.GAUCHE);
+                    if (v == fenetre.model.getVehiculeIndex(k, l + 2) && valide) {
+                        fenetre.model.deplacer(v, Model.GAUCHE);
                         valide = false;
                     }
                 }
                 if (l > 1) {
-                    if (v == model.getVehiculeIndex(k, l - 2) && valide) {
-                        model.deplacer(v, Model.DROITE);
+                    if (v == fenetre.model.getVehiculeIndex(k, l - 2) && valide) {
+                        fenetre.model.deplacer(v, Model.DROITE);
                         valide = false;
                     }
                 }
