@@ -1,6 +1,6 @@
 /**
  * Created by quent on 03/01/2017.
- */
+ *//*
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
@@ -48,3 +48,4 @@ public class DemoMP3 {
     }
 
 }
+*/

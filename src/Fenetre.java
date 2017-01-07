@@ -36,6 +36,12 @@ public class Fenetre extends JFrame {
         for (int i = 0; i < 10; i++) {
             jouer[i] = new JButton("" + i);
         }
+         tabBoutonvehicule= new JButton[6][6];
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                tabBoutonvehicule[i][j]=new JButton();
+            }
+        }
 
     }
 

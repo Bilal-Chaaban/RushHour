@@ -1,164 +1,31 @@
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 public class VehiculUnitTest {
-
     @Test
-    public void testLimiteGauche()  {
-        Vehicule voiture = new Voiture(Vehicule.BLEU);
-        Vehicule[][] tableau=new Vehicule[6][6];
-        tableau[0]= new Vehicule[]{voiture, voiture, null, null, null, null};
-        tableau[1]=new Vehicule[]{null,null,null,null,null,null};
-        tableau[2]=new Vehicule[]{null,null,null, null,null,null};
-        tableau[3]=new Vehicule[]{null,null,null,null,null,null};
-        tableau[4]=new Vehicule[]{null,null,null,null,null,null};
-        tableau[5]=new Vehicule[]{null,null,null,null,null,null};
-        Model model = new Model(1);
-
-        model.setVehicule(tableau);
-        System.out.println(model);
-        model.deplacer(voiture,Model.GAUCHE);
-        System.out.println(model);
-        assertArrayEquals(model.getVehicule(), tableau);
+    public void isCamionTest(){
+        Vehicule c=new Camion(Vehicule.BLEU);
+        Assert.assertTrue(c.isCamion());
     }
     @Test
-    public void testLimiteDroite()  {
-        Vehicule voiture = new Voiture(Vehicule.BLEU);
-        Vehicule[][] tableau=new Vehicule[6][6];
-        tableau[0]= new Vehicule[]{null, null, null, null, voiture, voiture};
-        tableau[1]=new Vehicule[]{null,null,null,null,null,null};
-        tableau[2]=new Vehicule[]{null,null,null, null,null,null};
-        tableau[3]=new Vehicule[]{null,null,null,null,null,null};
-        tableau[4]=new Vehicule[]{null,null,null,null,null,null};
-        tableau[5]=new Vehicule[]{null,null,null,null,null,null};
-        Model model = new Model(1);
-
-        model.setVehicule(tableau);
-        System.out.println(model);
-        model.deplacer(voiture,Model.DROITE);
-        System.out.println(model);
-        assertArrayEquals(model.getVehicule(), tableau);
-    }
-
-    @Test
-    public void testLimiteHaut()  {
-        Vehicule voiture = new Voiture(Vehicule.BLEU);
-        Vehicule[][] tableau=new Vehicule[6][6];
-        tableau[0]= new Vehicule[]{voiture, null, null, null, null, null};
-        tableau[1]=new Vehicule[]{voiture,null,null,null,null,null};
-        tableau[2]=new Vehicule[]{null,null,null, null,null,null};
-        tableau[3]=new Vehicule[]{null,null,null,null,null,null};
-        tableau[4]=new Vehicule[]{null,null,null,null,null,null};
-        tableau[5]=new Vehicule[]{null,null,null,null,null,null};
-        Model model = new Model(1);
-
-        model.setVehicule(tableau);
-        System.out.println(model);
-        model.deplacer(voiture,Model.HAUT);
-        System.out.println(model);
-        assertArrayEquals(model.getVehicule(), tableau);
+    public void isVoitureTest(){
+        Vehicule v=new Voiture(Vehicule.BLEU);
+        Assert.assertTrue(v.isVoiture());
     }
     @Test
-    public void testLimiteBas()  {
-        Vehicule voiture = new Voiture(Vehicule.BLEU);
-        Vehicule[][] tableau=new Vehicule[6][6];
-        tableau[0]= new Vehicule[]{null, null, null, null, null, null};
-        tableau[1]=new Vehicule[]{null,null,null,null,null,null};
-        tableau[2]=new Vehicule[]{null,null,null, null,null,null};
-        tableau[3]=new Vehicule[]{null,null,null,null,null,null};
-        tableau[4]=new Vehicule[]{voiture,null,null,null,null,null};
-        tableau[5]=new Vehicule[]{voiture,null,null,null,null,null};
-        Model model = new Model(1);
-
-        model.setVehicule(tableau);
-        System.out.println(model);
-        model.deplacer(voiture,Model.BAS);
-        System.out.println(model);
-        assertArrayEquals(model.getVehicule(), tableau);
-    }
-
-    @Test
-    public void testVoiturePresenteHaut()  {
-        Vehicule bleu = new Voiture(Vehicule.BLEU);
-        Vehicule rouge = new Voiture(Vehicule.ROUGE);
-
-        Vehicule[][] tableau=new Vehicule[6][6];
-        tableau[0]= new Vehicule[]{null, null, null, null, null, null};
-        tableau[1]=new Vehicule[]{null,null,null,null,null,null};
-        tableau[2]=new Vehicule[]{null,null,null, null,null,null};
-        tableau[3]=new Vehicule[]{rouge,rouge,null,null,null,null};
-        tableau[4]=new Vehicule[]{bleu,null,null,null,null,null};
-        tableau[5]=new Vehicule[]{bleu,null,null,null,null,null};
-        Model model = new Model(1);
-
-        model.setVehicule(tableau);
-        System.out.println(model);
-        model.deplacer(bleu,Model.HAUT);
-        assertArrayEquals(model.getVehicule(), tableau);
-        System.out.println(model);
+    public void isNotCamionTest(){
+        Vehicule v=new Voiture(Vehicule.BLEU);
+        Assert.assertFalse(v.isCamion());
     }
     @Test
-    public void testVoiturePresenteBas()  {
-        Vehicule bleu = new Voiture(Vehicule.BLEU);
-        Vehicule rouge = new Voiture(Vehicule.ROUGE);
-
-        Vehicule[][] tableau=new Vehicule[6][6];
-        tableau[0]= new Vehicule[]{null, null, null, null, null, null};
-        tableau[1]=new Vehicule[]{null,null,null,null,null,null};
-        tableau[2]=new Vehicule[]{rouge,null,null, null,null,null};
-        tableau[3]=new Vehicule[]{rouge,null,null,null,null,null};
-        tableau[4]=new Vehicule[]{bleu,null,null,null,null,null};
-        tableau[5]=new Vehicule[]{bleu,null,null,null,null,null};
-        Model model = new Model(1);
-
-        model.setVehicule(tableau);
-        System.out.println(model);
-        model.deplacer(rouge,Model.BAS);
-        System.out.println(model);
-        assertArrayEquals(model.getVehicule(), tableau);
+    public void isNotVoitureTest(){
+        Vehicule c=new Camion(Vehicule.BLEU);
+        Assert.assertFalse(c.isVoiture());
     }
-    @Test
-    public void testVoiturePresenteGauche()  {
-        Vehicule bleu = new Voiture(Vehicule.BLEU);
-        Vehicule rouge = new Voiture(Vehicule.ROUGE);
 
-        Vehicule[][] tableau=new Vehicule[6][6];
-        tableau[0]= new Vehicule[]{null, null, null, null, null, null};
-        tableau[1]=new Vehicule[]{null,null,null,null,null,null};
-        tableau[2]=new Vehicule[]{null,null,null, null,null,null};
-        tableau[3]=new Vehicule[]{null,null,null,null,null,null};
-        tableau[4]=new Vehicule[]{bleu,rouge,rouge,null,null,null};
-        tableau[5]=new Vehicule[]{bleu,null,null,null,null,null};
-        Model model = new Model(1);
-
-        model.setVehicule(tableau);
-        System.out.println(model);
-        model.deplacer(rouge,Model.GAUCHE);
-        System.out.println(model);
-        assertArrayEquals(model.getVehicule(), tableau);
-    }
-    @Test
-    public void testVoiturePresenteDroite()  {
-        Vehicule bleu = new Voiture(Vehicule.BLEU);
-        Vehicule rouge = new Voiture(Vehicule.ROUGE);
-
-        Vehicule[][] tableau=new Vehicule[6][6];
-        tableau[0]= new Vehicule[]{null, null, null, null, null, null};
-        tableau[1]=new Vehicule[]{null,null,null,null,null,null};
-        tableau[2]=new Vehicule[]{null,null,null, null,null,null};
-        tableau[3]=new Vehicule[]{null,null,rouge,null,null,null};
-        tableau[4]=new Vehicule[]{bleu,bleu,rouge,null,null,null};
-        tableau[5]=new Vehicule[]{null,null,null,null,null,null};
-        Model model = new Model(1);
-
-        model.setVehicule(tableau);
-        System.out.println(model);
-        model.deplacer(bleu,Model.DROITE);
-        System.out.println(model);
-        assertArrayEquals(model.getVehicule(), tableau);
-    }
 
 
 }
