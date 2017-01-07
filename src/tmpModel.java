@@ -73,7 +73,7 @@ public class tmpModel {
                 Controller controller = new Controller(fenetre);
                 fenetre.setModel(m2);
                 controller.setModel(m2);
-                fenetre.niveau(1, m2);
+                fenetre.niveau(1);
                 fenetre.setButtonControler(controller);
                 fenetre.menuReset();
 

@@ -34,7 +34,7 @@ public class Fenetre extends JFrame {
         setTitle("Rush Hour");
         creerMenu();
         for (int i = 0; i < 10; i++) {
-            jouer[i] = new JButton("" + i);
+            jouer[i] = new JButton("" + (i+1));
         }
          tabBoutonvehicule= new JButton[6][6];
         for (int i = 0; i < 6; i++) {
@@ -197,8 +197,12 @@ public class Fenetre extends JFrame {
 
 
 
-    public void niveau(int niveau, Model model) {
+    public void niveau(int niveau) {
+        model=new Model(niveau);
+        Controller c=new Controller(this);
+        c.setModel(model);
         affiche();
+        setButtonControler(c);
         //Model model = new Model(niveau);
       /*  Color c = new Color(0, 0, 0, 0);
         panelPrincipale = new JPanel();

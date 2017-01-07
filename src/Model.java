@@ -83,10 +83,18 @@ public class Model {
 
     public void init(int niveau) {
         //lecture dans un fichier la position des vehicule en fct du niv passer en param
+
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
                 vehicule[i][j] = null;
             }
+        }
+        try {
+            loadBin("niveau"+niveau);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
     }
 

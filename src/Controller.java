@@ -47,7 +47,13 @@ public class Controller implements ActionListener {
         if (e.getSource() == fenetre.regles) {
             new RegleJeu();
         }
+        for (int i = 0; i < 10; i++) {
 
+                if (e.getSource()==fenetre.jouer[i]){
+                    fenetre.niveau(i+1);
+                }
+
+        }
         Vehicule v = null;
         int k = 0, l = 0;
         JButton[][] tabBouton = fenetre.getTabBoutonvehicule();
@@ -120,7 +126,7 @@ public class Controller implements ActionListener {
                 }
             }
 
-            fenetre.niveau(1, model);
+
             fenetre.affiche();
             fenetre.setButtonControler(this);
         }
