@@ -302,7 +302,9 @@ public class Fenetre extends JFrame {
         bouton3.addActionListener(listener);
         bouton4.addActionListener(listener);
 */
-        jouer[0].addActionListener(listener);
+        for( int i = 0; i < jouer.length; i++) {
+            jouer[i].addActionListener(listener);
+        }
         nouvellePartie.addActionListener(listener);
         reset.addActionListener(listener);
         menuPrincipale.addActionListener(listener);
