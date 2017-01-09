@@ -36,6 +36,8 @@ public class Controller implements ActionListener {
             fenetre.creerMenuJouer();
         }
         if (fenetre.menuPrincipale == e.getSource()) {
+            chrono.stopChrono();
+            chrono = new Chrono(fenetre.chrono);
             fenetre.creerMenu();
         }
 
@@ -66,11 +68,9 @@ public class Controller implements ActionListener {
                 }
             }
         }
-
         if (v != null) {
             boolean valide = true;
             if (v.isVoiture()) {
-                System.out.println("test2");
                 if (k < 5) {
                     if (v == fenetre.model.getVehiculeIndex(k + 1, l) && valide) {
                         fenetre.model.deplacer(v, Model.HAUT);
@@ -78,11 +78,12 @@ public class Controller implements ActionListener {
 
                     }
 
-                } else if (k > 0) {
+                }
+                if (k > 0) {
                     if (v == fenetre.model.getVehiculeIndex(k - 1, l) && valide) {
                         fenetre.model.deplacer(v, Model.BAS);
+                        System.out.println("test");
                         valide = false;
-                        System.out.println("test1");
 
                     }
                 }
