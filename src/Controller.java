@@ -82,7 +82,6 @@ public class Controller implements ActionListener {
                 if (k > 0) {
                     if (v == fenetre.model.getVehiculeIndex(k - 1, l) && valide) {
                         fenetre.model.deplacer(v, Model.BAS);
-                        System.out.println("test");
                         valide = false;
 
                     }
