@@ -13,7 +13,7 @@ public class Fenetre extends JFrame {
 
     protected JButton[][] tabBoutonvehicule;
 
-    protected JButton[] jouer = new JButton[10];
+    protected JButton[] jouer = new JButton[6];
     protected JPanel panelBoutonJouer = new JPanel(new GridLayout(4, 3, 2, 10));
 
     protected JMenuBar barMenu;
@@ -33,8 +33,10 @@ public class Fenetre extends JFrame {
         setLocationRelativeTo(null);
         setTitle("Rush Hour");
         creerMenu();
-        for (int i = 0; i < 10; i++) {
-            jouer[i] = new JButton("" + (i+1));
+        for (int i = 0; i < 6; i++) {
+            jouer[i] = new JButton(new ImageIcon("image/" + (i+1) +".png"));
+            jouer[i].setPreferredSize(new Dimension(75,50));
+            //jouer[i] = new JButton("" + (i+1));
         }
          tabBoutonvehicule= new JButton[6][6];
         for (int i = 0; i < 6; i++) {
@@ -70,7 +72,7 @@ public class Fenetre extends JFrame {
     }
 
     public void creerMenuJouer() {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 6; i++) {
             panelBoutonJouer.add(jouer[i]);
         }
         panelPrincipale = new JPanel();
@@ -216,7 +218,7 @@ public class Fenetre extends JFrame {
         bouton3.addActionListener(listener);
         bouton4.addActionListener(listener);
 */
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 6; i++) {
             jouer[i].addActionListener(listener);
         }
 

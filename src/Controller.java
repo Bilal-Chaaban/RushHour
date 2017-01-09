@@ -49,7 +49,7 @@ public class Controller implements ActionListener {
         if (e.getSource() == fenetre.regles) {
             new RegleJeu();
         }
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 6; i++) {
 
                 if (e.getSource()==fenetre.jouer[i]){
                     fenetre.niveau(i+1);
