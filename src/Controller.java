@@ -49,6 +49,9 @@ public class Controller implements ActionListener {
         if (e.getSource() == fenetre.regles) {
             new RegleJeu();
         }
+        if(e.getSource()==fenetre.bouton4){
+            new RegleJeu();
+        }
         for (int i = 0; i < 6; i++) {
 
                 if (e.getSource()==fenetre.jouer[i]){

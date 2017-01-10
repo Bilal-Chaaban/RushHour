@@ -12,7 +12,7 @@ public class RegleJeu extends JFrame {
     public RegleJeu() {
 
         setVisible(true);
-        setSize(800,800);
+        setSize(600,600);
         setResizable(true);
         setLocationRelativeTo(null);
         creerWidget();

@@ -23,11 +23,10 @@ public class Fenetre extends JFrame {
     protected JMenuItem menuPrincipale = new JMenuItem("menu Princpale");
     protected JLabel chrono = new JLabel("0.00");
     protected Model model;
-    protected JLabel t = new JLabel("RUSH HOUR");
     protected JMenuItem regles = new JMenuItem("Règles du jeu");
 
     public Fenetre() {
-        setSize(800, 700);
+        setSize(600, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(true);
         setLocationRelativeTo(null);
@@ -66,6 +65,7 @@ public class Fenetre extends JFrame {
 
     public void creerJouer() {
 
+        setSize(800, 700);
         panelPrincipale = new JPanel();
         panelPrincipale.add(chrono);
         setContentPane(panelPrincipale);
@@ -92,7 +92,6 @@ public class Fenetre extends JFrame {
         panelBouton.add(bouton2);
         panelBouton.add(bouton3);
         panelBouton.add(bouton4);
-        panelPrincipale.add(t);
         panelPrincipale.add(panelBouton);
         setContentPane(panelPrincipale);
 
@@ -102,16 +101,16 @@ public class Fenetre extends JFrame {
         barMenu = new JMenuBar();
         menu1 = new JMenu("Partie");
         menu1.add(nouvellePartie);
+        menu1.add(menuPrincipale);
+        menu1.add(regles);
 
         barMenu.add(menu1);
-        barMenu.add(menuPrincipale);
         setJMenuBar(barMenu);
     }
 
     public void menuReset(){
         barMenu = new JMenuBar();
         barMenu.add(reset);
-        barMenu.add(regles);
         setJMenuBar(barMenu);
     }
 
@@ -215,9 +214,8 @@ public class Fenetre extends JFrame {
 
         bouton1.addActionListener(listener);
         /*bouton2.addActionListener(listener);
-        bouton3.addActionListener(listener);
+        bouton3.addActionListener(listener);*/
         bouton4.addActionListener(listener);
-*/
         for (int i = 0; i < 6; i++) {
             jouer[i].addActionListener(listener);
         }
@@ -226,6 +224,7 @@ public class Fenetre extends JFrame {
         reset.addActionListener(listener);
         menuPrincipale.addActionListener(listener);
         regles.addActionListener(listener);
+
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 6; j++) {
                 tabBoutonvehicule[i][j].addActionListener(listener);
